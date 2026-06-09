@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/netherite-black.png';
+import logo from '../assets/netherite.png';
 import './Navbar.css';
 
 export default function Navbar() {
