@@ -52,9 +52,7 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Connect</h4>
-            <a href="mailto:hello@netherite.co">Email</a>
-            <a href="#" rel="noopener noreferrer">Twitter</a>
-            <a href="#" rel="noopener noreferrer">LinkedIn</a>
+            <p>to be added</p>
           </div>
         </div>
       </div>
