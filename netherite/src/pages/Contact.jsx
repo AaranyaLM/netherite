@@ -37,7 +37,7 @@ export default function Contact() {
         <aside className="contact__sidebar">
           <div className="contact__detail">
             <span>Email</span>
-            <a href="mailto:hello@netherite.co">hello@netherite.co</a>
+            <a href="mailto:hello@netherite.co">editgarnuparcha@gmail.com</a>
           </div>
           <div className="contact__detail">
             <span>Response Time</span>

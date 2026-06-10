@@ -94,7 +94,7 @@ export default function Home() {
       {/* ── MISSION ── */}
       <section className="mission">
         <p className="mission__text">
-          Our mission is simple: help small businesses compete with
+          Our mission is simple: help businesses compete with
           great design and smart technology — <em>without the agency overhead.</em>
         </p>
       </section>
