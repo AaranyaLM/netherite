@@ -22,30 +22,38 @@ export default function Contact() {
 
   return (
     <main className="contact">
-      <div className="contact__layout">
 
-        <div className="contact__left">
-          <span className="contact__eyebrow">Get in Touch</span>
-          <h1 className="contact__title">Tell us about<br />your project.</h1>
-          <p className="contact__sub">
-            Fill in the form and we'll get back to you within one business day to
-            discuss how we can help.
-          </p>
+      <div className="contact__header">
+        <span className="contact__eyebrow">Get in Touch</span>
+        <h1 className="contact__title">Tell us about<br />your project.</h1>
+        <p className="contact__sub">
+          Fill in the form and we'll get back to you within one business day to
+          discuss how we can help bring your vision to life.
+        </p>
+      </div>
+
+      <div className="contact__body">
+
+        <aside className="contact__sidebar">
           <div className="contact__detail">
             <span>Email</span>
             <a href="mailto:hello@netherite.co">hello@netherite.co</a>
           </div>
-        </div>
+          <div className="contact__detail">
+            <span>Response Time</span>
+            <a href="mailto:hello@netherite.co">Within one business day</a>
+          </div>
+        </aside>
 
-        <div className="contact__right">
+        <div className="contact__main">
           {submitted ? (
             <div className="contact__thanks">
-              <div className="contact__thanks-icon">✓</div>
+              <div className="contact__thanks-icon" aria-hidden="true">✓</div>
               <h2>We got your message.</h2>
-              <p>We'll be in touch soon. Thanks for reaching out!</p>
+              <p>Thanks for reaching out. We'll be in touch shortly to start the conversation.</p>
             </div>
           ) : (
-            <form className="contact__form" onSubmit={handleSubmit}>
+            <form className="contact__form" onSubmit={handleSubmit} noValidate>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">Your Name</label>
@@ -57,6 +65,7 @@ export default function Contact() {
                     value={form.name}
                     onChange={handleChange}
                     required
+                    autoComplete="name"
                   />
                 </div>
                 <div className="form-group">
@@ -69,6 +78,7 @@ export default function Contact() {
                     value={form.email}
                     onChange={handleChange}
                     required
+                    autoComplete="email"
                   />
                 </div>
               </div>
@@ -95,7 +105,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="A brief description of what you're looking for, your timeline, or any questions you have."
+                  placeholder="A brief description of what you're looking for, your timeline, or any questions."
                   rows={6}
                   value={form.message}
                   onChange={handleChange}
@@ -103,7 +113,9 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn btn--primary btn--full">Send Message</button>
+              <button type="submit" className="btn--submit">
+                Send message →
+              </button>
             </form>
           )}
         </div>

@@ -37,24 +37,26 @@ export default function Services() {
 
       <header className="services__header">
         <span className="services__eyebrow">What We Do</span>
-        <h1 className="services__title">Our Services</h1>
+        <h1 className="services__title">Our<br />Services</h1>
         <p className="services__sub">
           Two focused offerings. Built with precision, not volume.
+          We go deep rather than wide.
         </p>
       </header>
 
       <section className="services__list">
-        {services.map((s, i) => (
-          <article className="service-item" key={`${s.number}-${s.title}`}>
+        {services.map((s) => (
+          <article className="service-item" key={s.number}>
             <div className="service-item__meta">
-              <span className="service-item__num">{s.number}</span>
-              <h2 className="service-item__title">{s.title}</h2>
-              <p className="service-item__tagline">{s.tagline}</p>
+              <div>
+                <span className="service-item__num">{s.number}</span>
+                <h2 className="service-item__title">{s.title}</h2>
+                <p className="service-item__tagline">{s.tagline}</p>
+              </div>
             </div>
 
             <div className="service-item__body">
               <p className="service-item__desc">{s.description}</p>
-
               <ul className="service-item__list">
                 {s.details.map((d) => (
                   <li key={d}>{d}</li>
@@ -65,15 +67,12 @@ export default function Services() {
         ))}
       </section>
 
-      {/* <section className="services__cta">
-        <div className="services__cta-inner">
-          <h3>Have a project in mind?</h3>
-          <p>Let’s build something clean, fast, and effective.</p>
-          <Link to="/contact" className="btn btn--primary">
-            Get in Touch
-          </Link>
-        </div>
-      </section> */}
+      <section className="services__cta">
+        <h3>Have a project in mind?</h3>
+        <Link to="/contact" className="btn btn--primary">
+          Get in touch →
+        </Link>
+      </section>
 
     </main>
   );

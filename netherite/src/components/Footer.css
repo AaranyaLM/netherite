@@ -1,132 +1,138 @@
+/* ── Footer ── Outside.studio inspired: timezone strip, clean columns */
+
 .footer {
-  position: relative;
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 40px 60px 5px;
-  overflow: hidden;
 }
 
-/* subtle ambient background (fixed version) */
-.footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 20% 10%,
-    rgba(0, 0, 0, 0.04),
-    transparent 45%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ensures content sits above background */
-.footer__inner,
-.footer__bottom {
-  position: relative;
-  z-index: 1;
-}
-
-/* MAIN LAYOUT */
+/* ── MAIN INNER ── */
 .footer__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 100px;
-  margin-bottom: 60px;
-}
-
-/* BRAND SECTION */
-.footer__brand {
-  max-width: 280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 72px 48px 60px;
+  border-bottom: 1px solid var(--border);
 }
 
 .footer__brand img {
-  height: 26px;
-  opacity: 0.85;
-  margin-bottom: 14px;
+  height: 42px;
+  opacity: 0.8;
+  margin-bottom: 18px;
+  display: block;
 }
 
 .footer__brand p {
   font-size: 0.9rem;
   color: var(--secondary);
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 260px;
 }
 
-/* COLUMNS */
 .footer__columns {
   display: flex;
-  gap: 90px;
+  gap: 72px;
+  justify-content: flex-end;
 }
 
-.footer__columns h4 {
-  font-size: 0.75rem;
+.footer__col h4 {
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 14px;
-  color: var(--text);
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  margin-bottom: 18px;
 }
 
-.footer__columns a {
+.footer__col a {
   display: block;
   font-size: 0.875rem;
-  color: var(--secondary);
-  margin-bottom: 10px;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-/* smooth underline hover */
-.footer__columns a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 1px;
-  background: var(--text);
-  transition: width 0.25s ease;
-}
-
-.footer__columns a:hover {
   color: var(--text);
+  margin-bottom: 12px;
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.2s;
 }
 
-.footer__columns a:hover::after {
-  width: 100%;
+.footer__col a:hover {
+  opacity: 1;
 }
 
-/* BOTTOM BAR */
+/* ── TIMEZONE STRIP ── */
+.footer__timezones {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer__tz {
+  flex: 1;
+  padding: 20px 48px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer__tz:last-child {
+  border-right: none;
+}
+
+.footer__tz-city {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.footer__tz-time {
+  font-size: 0.875rem;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── BOTTOM ── */
 .footer__bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 22px;
+  padding: 20px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--secondary);
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .footer {
-    padding: 60px 24px 30px;
-  }
-
   .footer__inner {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 40px;
+    padding: 52px 24px 44px;
   }
 
   .footer__columns {
-    gap: 60px;
+    gap: 48px;
+    justify-content: flex-start;
+  }
+
+  .footer__timezones {
     flex-wrap: wrap;
   }
 
+  .footer__tz {
+    flex: 0 0 50%;
+    padding: 16px 24px;
+  }
+
+  .footer__tz:nth-child(even) {
+    border-right: none;
+  }
+
+  .footer__tz:nth-child(1),
+  .footer__tz:nth-child(2) {
+    border-bottom: 1px solid var(--border);
+  }
+
   .footer__bottom {
+    padding: 20px 24px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 6px;
   }
 }

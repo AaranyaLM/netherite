@@ -8,20 +8,27 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <Link to="/" className="navbar__logo">
+      <Link to="/" className="navbar__logo" aria-label="Netherite — home">
         <img src={logo} alt="Netherite" />
       </Link>
+
       <div className="navbar__links">
-        <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
-        <Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link>
-        <Link to="/contact" className="navbar__cta">Let's Talk</Link>
+        <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+          Home
+        </Link>
+        <Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>
+          Services
+        </Link>
+        <Link to="/contact" className="navbar__cta">
+          Let's Talk →
+        </Link>
       </div>
     </nav>
   );
